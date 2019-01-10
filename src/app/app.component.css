@@ -1,0 +1,16 @@
+.yellow-color {
+  color: #E8BE02;
+}
+
+.modification-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.modification-card {
+  max-width: 280px;
+  min-width: 280px;
+  min-height: 180px;
+  max-height: 180px;
+}

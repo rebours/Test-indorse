@@ -1,0 +1,63 @@
+<app-header></app-header>
+<div style="text-align: center">
+  <div style=" background-color: orange;height: 410px;">
+    <h1 style="padding-top: 8%">Hello, Junk Food</h1>
+  </div>
+
+  <h2 style="margin-top: 5%" class="yellow-color">Food List</h2>
+  <div class="container">
+    <form class="form-inline row">
+      <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="margin-left: 30px; margin-bottom: 20px;" (keyup)="researchFood($event)">
+    </form>
+    <div class="row col-md-12">
+      <div class="col-md-3" style="height: 400px;max-width: 30%;" *ngFor="let junk of junkFood">
+        <div class="card " style="width: 18rem;" >
+          <img class="card-img-top modification-card" src="{{junk.imageURL}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ junk.name }}</h5>
+            <p class="card-text modification-text"> {{junk.steps}}</p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="detailsModal(junk.name)">
+             Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngIf="details">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{details.name}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label>Ingredients</label>
+        <ul *ngFor="let detail of details.ingredients">
+          <li>
+           <label>Quantity : </label> {{detail.quantity}}
+          </li>
+          <li>
+            <label>name : </label> {{detail.name}}
+          </li>
+        </ul>
+        <label>Steps</label>
+        <ul *ngFor="let step of details.steps">
+          <li>
+            {{step}}
+          </li>
+        </ul>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+
+
