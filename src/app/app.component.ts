@@ -503,7 +503,7 @@ export class AppComponent {
     let foodResearch = [];
 
     this.saveFood.forEach(function (item) {
-      if (item.name.includes(event.target.value)) {
+      if (item.name.toLowerCase().includes(event.target.value.toLowerCase())) {
         foodResearch.push(item);
       }
     });
